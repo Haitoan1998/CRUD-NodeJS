@@ -1,0 +1,34 @@
+{
+  "name": "crud-nodejs",
+  "version": "1.0.0",
+  "description": "Create, Update and Delete wit nodejs",
+  "main": "server.js",
+  "scripts": {
+    "beautiful": "lint-staged",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass src/public/scss/ --output src/public/css/ -w",
+    "start": "nodemon --inspect src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write src/**/*.{js,json,scss}"
+  },
+  "hooks": {
+    "pre-commit": "lint-staged"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.2"
+  }
+}

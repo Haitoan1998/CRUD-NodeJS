@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>HOME</title>
+  </head>
+  <body>
+    <div class="container-fluid mt-4">
+      <ul class="nav nav-pills mb-5">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            data-bs-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-expanded="false"
+            >Courses</a
+          >
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="/create-course">Create Courses</a>
+            </li>
+            <li><a class="dropdown-item" href="#">My List Courses</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form method="POST" action="/create-courses/sucsess">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            name="description"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image Link</label>
+          <input type="text" class="form-control" id="image" name="image" />
+        </div>
+        <div class="mb-3">
+          <label for="video" class="form-label">Video id</label>
+          <input type="text" class="form-control" id="video" name="videoID" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </body>
+</html>
