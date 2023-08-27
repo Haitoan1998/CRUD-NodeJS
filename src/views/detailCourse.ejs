@@ -35,8 +35,15 @@
             <li>
               <a class="dropdown-item" href="/create-course">Create Courses</a>
             </li>
-            <li><a class="dropdown-item" href="#">My List Courses</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li>
+              <a class="dropdown-item" href="/list-courses">My List Courses</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/Bin">
+                Bin (<% if(listCourseDelete.length === 0){ %> 0 <% } else{ %>
+                <%= listCourseDelete.length %> <% } %>)
+              </a>
+            </li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">Separated link</a></li>
           </ul>

@@ -36,12 +36,12 @@
               <a class="dropdown-item" href="/create-course">Create Courses</a>
             </li>
             <li>
-              <a class="dropdown-item" href="/list-courses">My List Courses </a>
+              <a class="dropdown-item" href="/list-courses">My List Courses</a>
             </li>
             <li>
               <a class="dropdown-item" href="/Bin">
-                Bin (<% if(listCourseDelete.length === 0){ %> 0 <% } else{ %>
-                <%= listCourseDelete.length %> <% } %>)
+                Bin (<% if(listCourses.length === 0){ %> 0 <% } else{ %> <%=
+                listCourses.length %> <% } %>)
               </a>
             </li>
             <li><hr class="dropdown-divider" /></li>
@@ -49,31 +49,46 @@
           </ul>
         </li>
       </ul>
-      <form method="POST" action="/create-courses/sucsess">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" name="name" />
-        </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <input
-            type="text"
-            class="form-control"
-            id="description"
-            name="description"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="image" class="form-label">Image Link</label>
-          <input type="text" class="form-control" id="image" name="image" />
-        </div>
-        <div class="mb-3">
-          <label for="video" class="form-label">Video id</label>
-          <input type="text" class="form-control" id="video" name="videoID" />
-        </div>
-
-        <button type="submit" class="btn btn-primary">Create</button>
-      </form>
+      <% if(listCourses.length === 0){ %> Empty Trash Bin
+      <a href="/list-courses">Back My List Courses</a> <% } else{ %>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">check</th>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">description</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% listCourses.forEach(function(course) { %>
+          <tr>
+            <th scope="row"><input type="checkbox" name="" id="" /></th>
+            <td><%= course.id %></td>
+            <td>
+              <a
+                href="/detail-course/<%= course.slug %>"
+                class="text-decoration-none text-white"
+                ><%= course.name %></a
+              >
+            </td>
+            <td><%= course.description %></td>
+            <td>
+              <button>
+                <a href="/restore-Course/<%= course.slug %>">Restore</a>
+              </button>
+              <button>
+                <a href="/permanently-delete-course/<%= course.slug %>"
+                  >Permanently Delete</a
+                >
+              </button>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } %>
     </div>
   </body>
 </html>
